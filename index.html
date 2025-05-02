@@ -5,6 +5,10 @@
   <title>Bilderkennung mit ml5.js</title>
   <link rel="stylesheet" href="style.css">
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+<script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js" defer></script>
 <body>
 <header>
   <h1>Bilderkennung mit ml5.js</h1>
@@ -16,32 +20,32 @@
     <h2>Beispielbilder: Richtige Klassifikationen</h2>
     <div class="grid">
       <div class="image-chart-pair">
-        <img src="bilder/korrekt1.jpg" alt="Korrekt 1">
-        <canvas></canvas>
+        <img src="bilder/korrekt1.png" alt="Korrekt 1" id="img1">
+        <canvas id="canvas1"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/korrekt2.jpg" alt="Korrekt 2">
-        <canvas></canvas>
+        <img src="bilder/korrekt2.jpeg" alt="Korrekt 2" id="img2">
+        <canvas id="canvas2"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/korrekt3.jpg" alt="Korrekt 3">
-        <canvas></canvas>
+        <img src="bilder/korrekt3.jpeg" alt="Korrekt 3" id="img3">
+        <canvas id="canvas3"></canvas>
       </div>
     </div>
 
     <h2>Beispielbilder: Falsche Klassifikationen</h2>
     <div class="grid">
       <div class="image-chart-pair">
-        <img src="bilder/falsch1.jpg" alt="Falsch 1">
-        <canvas></canvas>
+        <img src="bilder/falsch1.jpeg" alt="Falsch 1" id="img4">
+        <canvas id="canvas4"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/falsch2.jpg" alt="Falsch 2">
-        <canvas></canvas>
+        <img src="bilder/falsch2.jpeg" alt="Falsch 2" id="img5">
+        <canvas id="canvas5"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/falsch3.jpg" alt="Falsch 3">
-        <canvas></canvas>
+        <img src="bilder/falsch3.jpeg" alt="Falsch 3" id="img6">
+        <canvas id="canvas6"></canvas>
       </div>
     </div>
   </section>
