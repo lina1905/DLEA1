@@ -2,10 +2,78 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <title>Bilderkennung mit ml5.js</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello World!</h1>
-  <p>Willkommen auf meiner ersten GitHub Pages-Seite.</p>
+<header>
+  <h1>Bilderkennung mit ml5.js</h1>
+  <p>Vortrainiertes Modell (MobileNet) zur Klassifikation von Bildern</p>
+</header>
+
+<main>
+  <section class="classification-section">
+    <h2>Beispielbilder: Richtige Klassifikationen</h2>
+    <div class="grid">
+      <div class="image-chart-pair">
+        <img src="bilder/korrekt1.jpg" alt="Korrekt 1">
+        <canvas></canvas>
+      </div>
+      <div class="image-chart-pair">
+        <img src="bilder/korrekt2.jpg" alt="Korrekt 2">
+        <canvas></canvas>
+      </div>
+      <div class="image-chart-pair">
+        <img src="bilder/korrekt3.jpg" alt="Korrekt 3">
+        <canvas></canvas>
+      </div>
+    </div>
+
+    <h2>Beispielbilder: Falsche Klassifikationen</h2>
+    <div class="grid">
+      <div class="image-chart-pair">
+        <img src="bilder/falsch1.jpg" alt="Falsch 1">
+        <canvas></canvas>
+      </div>
+      <div class="image-chart-pair">
+        <img src="bilder/falsch2.jpg" alt="Falsch 2">
+        <canvas></canvas>
+      </div>
+      <div class="image-chart-pair">
+        <img src="bilder/falsch3.jpg" alt="Falsch 3">
+        <canvas></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section class="user-upload">
+    <h2>Eigenes Bild hochladen</h2>
+    <input type="file" id="imageUpload" accept="image/*">
+    <button id="classifyButton">Classify</button>
+    <div class="image-chart-pair">
+      <div id="user-image-preview"></div>
+      <canvas id="user-chart"></canvas>
+    </div>
+  </section>
+
+  <section class="discussion">
+    <h2>Diskussion</h2>
+    <p>
+      <!-- Deine Beobachtungen und Reflexionen hier -->
+    </p>
+  </section>
+
+  <section class="documentation">
+    <h2>Dokumentation</h2>
+    <h3>Technisch</h3>
+    <p>
+      <!-- Verwendete Frameworks und Besonderheiten -->
+    </p>
+    <h3>Fachlich</h3>
+    <p>
+      <!-- Logik, Ansätze, Quellen etc. -->
+    </p>
+  </section>
+</main>
 </body>
 </html>
