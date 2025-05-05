@@ -11,71 +11,91 @@
 <script src="script.js" defer></script>
 <body>
 <header>
-  <h1>Bilderkennung mit ml5.js</h1>
-  <p>Vortrainiertes Modell (MobileNet) zur Klassifikation von Bildern</p>
+  <h1>Bilderkennung mit <span class="highlight">ml5.js</span></h1>
+  <p>Die folgende Webanwendung klassifiziert Bilder mit Hilfe von ml5.js.</p>
+  <p>Es kann einige Sekunden dauern, bis die Ergebnisse geladen werden.</p>
+  <p>Bitte haben Sie etwas geduld!</p>
 </header>
 
 <main>
   <section class="classification-section">
-    <h2>Beispielbilder: Richtige Klassifikationen</h2>
-    <div class="grid">
+    <div class="correct-classifications">
+      <h2>Beispielbilder: Richtige Klassifikationen</h2>
+      <p>Die nachfolgenden drei Bilder wurden richtig klassifiziert.</p>
       <div class="image-chart-pair">
-        <img src="bilder/korrekt1.png" alt="Korrekt 1" id="img1">
+        <img src="bilder/richtig1.png" alt="Korrekt 1" id="img1">
         <canvas id="canvas1"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/korrekt2.jpeg" alt="Korrekt 2" id="img2">
+        <img src="bilder/richtig2.png" alt="Korrekt 2" id="img2">
         <canvas id="canvas2"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/korrekt3.jpeg" alt="Korrekt 3" id="img3">
+        <img src="bilder/richtig3.png" alt="Korrekt 3" id="img3">
         <canvas id="canvas3"></canvas>
       </div>
     </div>
+  </section>
 
-    <h2>Beispielbilder: Falsche Klassifikationen</h2>
-    <div class="grid">
+  <section class="classification-section">
+    <div class="correct-classifications">
+      <h2>Beispielbilder: Falsche Klassifikationen</h2>
+      <p>Die nachfolgenden drei Bilder wurden falsch klassifiziert.</p>
       <div class="image-chart-pair">
-        <img src="bilder/falsch1.jpeg" alt="Falsch 1" id="img4">
+        <img src="bilder/falsch1.png" alt="Falsch 1" id="img4">
         <canvas id="canvas4"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/falsch2.jpeg" alt="Falsch 2" id="img5">
+        <img src="bilder/falsch2.png" alt="Falsch 2" id="img5">
         <canvas id="canvas5"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/falsch3.jpeg" alt="Falsch 3" id="img6">
+        <img src="bilder/falsch3.png" alt="Falsch 3" id="img6">
         <canvas id="canvas6"></canvas>
       </div>
     </div>
   </section>
 
-  <section class="user-upload">
+  <section class="user-upload correct-classifications">
     <h2>Eigenes Bild hochladen</h2>
+    <p>Hier kann ein Bild hochgeladen werden, welches klassifiziert werden soll.</p>
     <input type="file" id="imageUpload" accept="image/*">
+    <div id="drag-and-drop-area">
+      <p>Ziehe ein Bild hierher, um es zu klassifizieren.</p>
+    </div>
     <button id="classifyButton">Classify</button>
     <div class="image-chart-pair">
       <div id="user-image-preview"></div>
       <canvas id="user-chart"></canvas>
     </div>
+    <button id="resetButton">Zurücksetzen</button>
   </section>
 
-  <section class="discussion">
+  <section class="discussion correct-classifications">
     <h2>Diskussion</h2>
     <p>
-      <!-- Deine Beobachtungen und Reflexionen hier -->
+      Die Klassifikation funktioniert bei klaren, typischen Bildern sehr zuverlässig. Besonders bei den korrekt klassifizierten Beispielen war die höchste Konfidenz über 90 %. Schwieriger wurde es bei Bildern mit ungewöhnlichen Perspektiven oder geringer Qualität – dort gab es fehlerhafte Klassifikationen. Oft liegt das daran, dass das Modell vor allem auf typische Darstellung trainiert wurde. Außerdem zeigen Modifikationen wie Weichzeichnen oder Verzerrung, dass die Robustheit begrenzt ist.
     </p>
   </section>
 
-  <section class="documentation">
+  <section class="documentation correct-classifications">
     <h2>Dokumentation</h2>
     <h3>Technisch</h3>
     <p>
-      <!-- Verwendete Frameworks und Besonderheiten -->
+      Verwendete Frameworks:
+    <ul>
+      <li><strong>ml5.js</strong>: Zum Einsatz eines vortrainierten neuronalen Netzwerks (MobileNet) für die Bildklassifikation.</li>
+      <li><strong>Chart.js</strong>: Zur Visualisierung der Klassifikationsergebnisse als Balkendiagramme.</li>
+      <li><strong>p5.js</strong>: Wird vom ml5-Framework teilweise genutzt, z. B. für Bildmanipulationen.</li>
+    </ul>
+    <p>
+      Besonderheit: Die Anwendung erlaubt sowohl Datei-Uploads als auch Drag-and-Drop. Es wurde auf responsive Layout und kontrastreiche Visualisierung geachtet.
+      </p>
     </p>
+
     <h3>Fachlich</h3>
     <p>
-      <!-- Logik, Ansätze, Quellen etc. -->
+      Die Anwendung nutzt das vortrainierte MobileNet-Modell zur Bilderkennung. Dieses Modell wurde auf dem ImageNet-Datensatz trainiert. Die Logik basiert auf dem Prinzip der Wahrscheinlichkeitsverteilung über mögliche Klassen. Die Klasse mit der höchsten Confidence wird als Ergebnis angenommen. Fehler entstehen meist bei Bildern, die in der Trainingsmenge nicht gut vertreten sind oder stark verändert wurden. Die Anwendung wurde auf typische Usability-Anforderungen wie klare Rückmeldung, einfache Bedienung und Feedback bei Fehlern geprüft.
     </p>
   </section>
 </main>
