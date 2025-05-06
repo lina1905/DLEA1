@@ -56,7 +56,7 @@ function renderChart(canvas, labels, confidences) {
         plot_bgcolor: '#2E3150',
         paper_bgcolor: '#2E3150',
         font: { color: '#FFFFFF' },
-        margin: { t: 40, b: 50 }
+        margin: { t: 40, b: 100 }
     };
 
     const chartContainer = document.createElement('div');

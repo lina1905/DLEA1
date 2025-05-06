@@ -121,41 +121,32 @@
       </li>
     </ul>
     <h3>Fachlich</h3>
-    <p>Implementierung der Logik</p>
-    <ul>
-      <li>
-        <strong>Klassifikation mit MobileNet:</strong>
-        Das MobileNet-Modell wird über <code>ml5.js</code> verwendet, um Bilder zu klassifizieren. Sobald die Seite geladen ist, wird das Modell initialisiert und anschließend für die Klassifikation von Beispielbildern verwendet.
-      </li>
-      <li>
-        <strong>Klassifikationsergebnisse:</strong>
-        Für jedes Bild werden die drei wahrscheinlichsten Kategorien mit den zugehörigen Confidence-Werten (Wahrscheinlichkeiten) berechnet und in einem Balkendiagramm angezeigt. Dies ermöglicht eine visuelle Darstellung der Unsicherheit und Genauigkeit der Klassifikation.
-      </li>
-      <li>
-        <strong>Reset-Funktion:</strong>
-        Die Anwendung bietet die Möglichkeit, eine durchgeführte Klassifikation zurückzusetzen. Dadurch kann der Nutzer ein neues Bild hochladen und erneut klassifizieren lassen – ideal für wiederholte Tests und Vergleiche.
-      </li>
-      <li>
-        <strong>Fehlklassifikationen:</strong>
-        Zur Veranschaulichung der Grenzen des Modells werden bewusst Bilder verwendet, die zu Fehlklassifikationen führen, um die Schwächen des Modells aufzuzeigen. Dies wird im Abschnitt „Diskussion“ analysiert, um die Auswirkungen von Bildqualität, Perspektive und Kontext auf die Erkennungsleistung zu verdeutlichen.
-      </li>
-    </ul>
+    <p>
+      Die Anwendung verfolgt das Ziel, die Leistungsfähigkeit und Grenzen moderner Bildklassifikationssysteme anhand eines realitätsnahen Beispiels (MobileNet) sichtbar zu machen.
+      Der fachliche Ansatz beruht darauf, dem Nutzer die Funktionsweise sowie die Stärken und Schwächen eines solchen Modells erfahrbar zu machen – durch unmittelbares visuelles Feedback
+      und bewusst gewählte Beispielbilder.
+    </p>
 
-    <p>Wichtige Aspekte</p>
-    <ul>
-      <li>
-        <strong>Bildqualität und Kontext:</strong>
-        Das Modell hat bei klar strukturierten Bildern (z. B. ein Golden Retriever) eine hohe Erkennungsgenauigkeit. Schwieriger wird es bei ungewöhnlichen Perspektiven oder Bildern mit wenig Kontext.
-      </li>
-      <li>
-        <strong>Quellen:</strong>
-        Die Datenquelle des Modells ist der ImageNet-Datensatz, auf dem MobileNet trainiert wurde. Dieser Datensatz enthält Millionen von Bildern und ermöglicht eine Klassifikation in über 1000 Kategorien.
-      </li>
-      <li>
-        <strong>Zukunftsperspektive:</strong>
-        Eine mögliche Erweiterung könnte darin bestehen, weitere Modelle zu integrieren, um eine breitere Palette an Klassifikationen zu ermöglichen. Ebenso könnte das gleichzeitige Klassifizieren mehrerer Bilder hinzugefügt werden.
-      </li>
-    </ul>
+    <p>
+      Ein zentraler Bestandteil ist die Darstellung der drei wahrscheinlichsten Klassifikationen eines Bildes. Diese werden dem Nutzer nicht nur textlich, sondern auch grafisch vermittelt,
+      um ein besseres Verständnis über die Unsicherheiten der Vorhersage zu ermöglichen. Die Gewichtung der „Confidence“-Werte zeigt dabei, wie sicher sich das Modell in seiner Einschätzung ist,
+      was eine wichtige Orientierungshilfe für die Einordnung der Ergebnisse darstellt.
+    </p>
+
+    <p>
+      Zur Verdeutlichung der Grenzen des Modells wurden gezielt auch Bilder integriert, die zu Fehlklassifikationen führen. Dies unterstreicht, dass neuronale Netze wie MobileNet in bestimmten Situationen –
+      etwa bei schlechter Bildqualität, untypischen Perspektiven oder fehlendem Kontext – falsche Schlüsse ziehen. Solche Fehlklassifikationen sind kein Fehler der Anwendung,
+      sondern ein zentraler Punkt der Diskussion: Sie zeigen die Grenzen statistischer Mustererkennung auf und machen den Nutzer für die Risiken rein automatisierter Entscheidungen sensibel.
+    </p>
+
+    <p>
+      Die Klassifikationen basieren auf dem ImageNet-Datensatz, einem der größten und am weitesten verbreiteten Bilddatensätze zur Objekterkennung.
+    </p>
+
+    <p>
+      Abschließend eröffnet die Anwendung auch einen Ausblick: Sie zeigt nicht nur, was heute mit bestehenden Modellen möglich ist, sondern auch, wo noch Potenzial für Weiterentwicklungen liegt –
+      etwa durch die Kombination mehrerer Modelle oder durch gezielte Trainingsdatenerweiterung für spezifische Anwendungsdomänen.
+    </p>
 
   </section>
 </main>
