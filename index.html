@@ -75,7 +75,11 @@
   <section class="discussion box-information">
     <h2>Diskussion</h2>
     <p>
-      Die Analyse der Bildklassifikation zeigt deutlich, dass das Modell bei typischen, klar strukturierten Motiven mit eindeutigem Kontext sehr zuverlässige Ergebnisse liefert. So wurden ein Golden Retriever, ein Flugzeug am Himmel und ein Schnellzug mit über 90 % Wahrscheinlichkeit korrekt erkannt, was auf eine gute Trainingsbasis und effektive Mustererkennung hindeutet. Auffällig ist dabei, dass die Top-1-Ergebnisse stark dominiert haben, während alternative Klassen nur mit sehr niedrigen Wahrscheinlichkeiten vertreten waren.
+      Die Analyse der Bildklassifikation zeigt deutlich, dass das Modell bei typischen, klar strukturierten Motiven
+      mit eindeutigem Kontext sehr zuverlässige Ergebnisse liefert. So wurden ein Golden Retriever, ein Flugzeug am
+      Himmel und ein Schnellzug im Bahnhof mit über 90 % Wahrscheinlichkeit korrekt erkannt, was auf eine gute
+      Trainingsbasis
+      und effektive Mustererkennung hindeutet. Auffällig ist dabei, dass die Top-1-Ergebnisse stark dominiert haben, während alternative Klassen nur mit sehr niedrigen Wahrscheinlichkeiten vertreten waren.
     </p>
     <p>
       Im Gegensatz dazu zeigt sich bei den Fehlklassifikationen, dass das Modell vor allem dann Schwierigkeiten hat, wenn ungewöhnliche Perspektiven, neutraler Hintergrund oder wenig repräsentative Merkmale vorliegen. Beispielsweise wurde ein Entenküken als weißer Fuchs oder Pomeranian interpretiert, vermutlich aufgrund ähnlicher Farb- und Formmuster. Besonders deutlich wird die Bedeutung des Kontexts am Beispiel der Kiwi, die mit über 50 % als Nautilus klassifiziert wurde – hier fehlt dem Modell offenbar das Verständnis für die reale Objektnatur. Auch das Rennauto wurde fälschlich mit Transportfahrzeugen wie Truck oder Einkaufswagen verwechselt, was auf Schwierigkeiten mit perspektivischer Erkennung und Bewegungsunschärfe hinweist.
@@ -91,31 +95,68 @@
     <p>
       Verwendete Frameworks:
     <ul>
-    <li><strong>ml5.js</strong>: Ein benutzerfreundliches JavaScript-Framework, das maschinelles Lernen zugänglich macht. Es nutzt das vortrainierte MobileNet-Modell zur Bildklassifikation.
+    <li><strong>ml5.js</strong>: in benutzerfreundliches JavaScript-Framework, das maschinelles Lernen zugänglich
+      macht. Es nutzt das vortrainierte MobileNet-Modell zur Bildklassifikation. Ein benutzerfreundliches JavaScript-Framework, das maschinelles Lernen im Browser ermöglicht. Es verwendet das vortrainierte MobileNet-Modell zur Bildklassifikation, wodurch ohne eigene Modelltrainings solide Ergebnisse erzielt werden können.
+
+    </li>
+      <li><strong>Plotly.js</strong>: Diese Visualisierungsbibliothek wird verwendet, um die Klassifikationsergebnisse als übersichtliche Balkendiagramme darzustellen. Die Darstellung der Top-3-Klassen pro Bild mit prozentualem Confidence-Wert erfolgt optisch ansprechend.
       </li>
-      <li><strong>Plotly.js</strong>: Visualisierung der Klassifikationsergebnisse als
-        Balkendiagramm.
-      </li>
-      <li><strong>HTML5/JS/CSS</strong>: Strukturierung, Logik und Gestaltung der Anwendung mit Fokus auf Usability.
+      <li><strong>HTML5/JS/CSS</strong>: Diese Technologien bilden die Grundlage der Anwendung – sie strukturieren die Seite, steuern die Interaktionen und gestalten die Benutzeroberfläche.
       </li>
     </ul>
-    <p> Die Anwendung läuft im Browser. Sie wurde mit Webstorm
-      entwickelt und mit einem Live Server lokal getestet. Für das Hosting wird GitHub Pages genutzt. Der Quellcode ist
-      modular aufgebaut. Drag-and-drop sowie Dateiupload wurden über die native File API implementiert. Fehlerhafte
-      Eingaben beim Bild-Upload werden durch Alerts abgefangen. </p>
-
+    <p>Besonderheiten:</p>
+    <ul>
+      <li>
+        Die Anwendung erlaubt es, eine bereits durchgeführte Klassifikation zurückzusetzen und ein neues Bild hochzuladen. Dies wird über einen „Zurücksetzen“-Button umgesetzt, der Bildvorschau und Diagramm entfernt und eine neue Klassifikation ermöglicht – ideal für wiederholte Tests.
+      </li>
+      <li>
+        Nutzer können Bilder sowohl per Dateiauswahl als auch durch Drag-and-Drop hochladen, was eine flexible und benutzerfreundliche Bedienung unterstützt.
+      </li>
+      <li>
+        Beim Hochladen von Dateien per Dateiauswahl als auch über die Drag-and-Drop-Funktion wird geprüft, ob es
+        sich um ein unterstütztes Bildformat (z. B. JPG, PNG) handelt. Falls kein gültiges Bild erkannt wird, erscheint eine entsprechende Fehlermeldung. Dies schützt vor falschen Eingaben und verbessert die Robustheit der Anwendung.
+      </li>
+      <li>
+        Um die Usability und das Verständnis der Nutzer zu verbessern, wurden jedem Funktionsbereich der Anwendung (z. B. richtige/falsche Klassifikationen, Benutzer-Upload) erklärende Texte hinzugefügt. Diese beschreiben die Funktion und den Zweck des jeweiligen Abschnitts und helfen besonders unerfahrenen Nutzern beim Einstieg.
+      </li>
+    </ul>
     <h3>Fachlich</h3>
-    <p> Ziel war es, eine clientseitige Bilderkennung mit einem vortrainierten Modell umzusetzen. Verwendet wurde das
-      MobileNet-Modell von TensorFlow, das in ml5.js eingebunden ist. Die Entscheidung für MobileNet fiel aufgrund
-      seiner hohen Effizienz und Browser-Kompatibilität. Das Modell wurde auf dem umfangreichen ImageNet-Datensatz
-      trainiert, was eine Klassifikation in über 1000 Kategorien erlaubt. </p>
-    <p> Die Anwendung zeigt für jedes Bild die Top-3-Vorhersagen mit prozentualen Confidence-Werten, visualisiert über
-      Balkendiagramme. Richtig und falsch klassifizierte Bilder wurden gezielt ausgewählt, um die Stärken und Schwächen
-      des Modells zu illustrieren. Besonders fehleranfällig sind Aufnahmen mit schlechtem Licht, ungewöhnlichem
-      Ausschnitt oder geringer Bildqualität. </p>
-    <p> Die Implementierung berücksichtigt zentrale HCI-Kriterien: Die Oberfläche ist aufgabenorientiert,
-      interaktionsfreundlich und fehlerrobust. Eine Erweiterung auf mehrere Bilder oder zusätzliche Modelle wäre
-      denkbar. </p>
+    <p>Implementierung der Logik</p>
+    <ul>
+      <li>
+        <strong>Klassifikation mit MobileNet:</strong>
+        Das MobileNet-Modell wird über <code>ml5.js</code> verwendet, um Bilder zu klassifizieren. Sobald die Seite geladen ist, wird das Modell initialisiert und anschließend für die Klassifikation von Beispielbildern verwendet.
+      </li>
+      <li>
+        <strong>Klassifikationsergebnisse:</strong>
+        Für jedes Bild werden die drei wahrscheinlichsten Kategorien mit den zugehörigen Confidence-Werten (Wahrscheinlichkeiten) berechnet und in einem Balkendiagramm angezeigt. Dies ermöglicht eine visuelle Darstellung der Unsicherheit und Genauigkeit der Klassifikation.
+      </li>
+      <li>
+        <strong>Reset-Funktion:</strong>
+        Die Anwendung bietet die Möglichkeit, eine durchgeführte Klassifikation zurückzusetzen. Dadurch kann der Nutzer ein neues Bild hochladen und erneut klassifizieren lassen – ideal für wiederholte Tests und Vergleiche.
+      </li>
+      <li>
+        <strong>Fehlklassifikationen:</strong>
+        Zur Veranschaulichung der Grenzen des Modells werden bewusst Bilder verwendet, die zu Fehlklassifikationen führen, um die Schwächen des Modells aufzuzeigen. Dies wird im Abschnitt „Diskussion“ analysiert, um die Auswirkungen von Bildqualität, Perspektive und Kontext auf die Erkennungsleistung zu verdeutlichen.
+      </li>
+    </ul>
+
+    <p>Wichtige Aspekte</p>
+    <ul>
+      <li>
+        <strong>Bildqualität und Kontext:</strong>
+        Das Modell hat bei klar strukturierten Bildern (z. B. ein Golden Retriever) eine hohe Erkennungsgenauigkeit. Schwieriger wird es bei ungewöhnlichen Perspektiven oder Bildern mit wenig Kontext.
+      </li>
+      <li>
+        <strong>Quellen:</strong>
+        Die Datenquelle des Modells ist der ImageNet-Datensatz, auf dem MobileNet trainiert wurde. Dieser Datensatz enthält Millionen von Bildern und ermöglicht eine Klassifikation in über 1000 Kategorien.
+      </li>
+      <li>
+        <strong>Zukunftsperspektive:</strong>
+        Eine mögliche Erweiterung könnte darin bestehen, weitere Modelle zu integrieren, um eine breitere Palette an Klassifikationen zu ermöglichen. Ebenso könnte das gleichzeitige Klassifizieren mehrerer Bilder hinzugefügt werden.
+      </li>
+    </ul>
+
   </section>
 </main>
 </body>
