@@ -1,8 +1,8 @@
 body {
-    font-family: sans-serif;
+    font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    line-height: 1.0;
     background: #161D30; /* Neue Hintergrundfarbe */
     color: #333;
 }
@@ -29,13 +29,13 @@ h2 {
     margin-top: 20px;
     margin-left: 25px;
     margin-right: 25px;
-    color: white;
+    color: #FAB17C;
 }
 
 h3 {
-    color: white;
     margin-left: 25px;
     margin-right: 25px;
+    color: #FAB17C;
 }
 
 p, ul {
@@ -55,7 +55,9 @@ p, ul {
     display: flex;
     gap: 20px;
     align-items: center;
-    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 15px;
     margin-left: 25px;
 }
 
@@ -71,12 +73,13 @@ p, ul {
     height: 250px; /* Höhe wird automatisch angepasst */
 }
 
-.correct-classifications {
+.box-information {
     background: #2E3150;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 70px 100px;
+    margin-top:10px;
 }
 
 input[type="file"] {
@@ -139,3 +142,4 @@ input[type="file"] {
 .js-plotly-plot .plotly .modebar {
     display: none;
 }
+

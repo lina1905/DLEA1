@@ -4,59 +4,60 @@
   <meta charset="UTF-8">
   <title>Bilderkennung mit ml5.js</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
 <script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
 <script src="script.js" defer></script>
 <body>
 <header>
   <h1>Bilderkennung mit <span class="highlight">ml5.js</span></h1>
-  <p>Diese Webanwendung klassifiziert Bilder mit Hilfe von ml5.js.</p>
-  <p>Es kann einige Sekunden dauern, bis die Ergebnisse geladen werden.</p>
+  <p>Diese Webanwendung klassifiziert Bilder mithilfe eines vor-trainierten KI-Modells über die Bibliothek ml5.js direkt im Browser.<br>
+    Die drei wahrscheinlichsten Klassen werden mit ihren Confidence-Werten (Wahrscheinlichkeiten) als Balkendiagramm dargestellt.
+  </p>
+  <p><em>Es kann einige Sekunden dauern, bis die Ergebnisse geladen werden.</em></p>
 </header>
 
 <main>
   <section class="classification-section">
-    <div class="correct-classifications">
-      <h2>Beispielbilder: Richtige Klassifikationen</h2>
+    <div class="box-information">
+      <h2>Richtige Klassifikationen</h2>
       <p>Die nachfolgenden drei Bilder werden richtig klassifiziert.</p>
       <div class="image-chart-pair">
-        <img src="bilder/richtig1.png" alt="Korrekt 1" id="img1">
+        <img src="bilder/richtig1.png" alt="Bild eines Golden Retrievers" id="img1">
         <canvas id="canvas1"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/richtig2.png" alt="Korrekt 2" id="img2">
+        <img src="bilder/richtig2.png" alt="Bild eines Flugzeugs am Himmel" id="img2">
         <canvas id="canvas2"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/richtig3.png" alt="Korrekt 3" id="img3">
+        <img src="bilder/richtig3.png" alt="Bild eines Schnellzugs" id="img3">
         <canvas id="canvas3"></canvas>
       </div>
     </div>
   </section>
 
   <section class="classification-section">
-    <div class="correct-classifications">
-      <h2>Beispielbilder: Falsche Klassifikationen</h2>
+    <div class="box-information">
+      <h2>Falsche Klassifikationen</h2>
       <p>Die nachfolgenden drei Bilder werden falsch klassifiziert.</p>
       <div class="image-chart-pair">
-        <img src="bilder/falsch1.png" alt="Falsch 1" id="img4">
+        <img src="bilder/falsch1.png" alt="Bild eines Entenkükens" id="img4">
         <canvas id="canvas4"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/falsch2.png" alt="Falsch 2" id="img5">
+        <img src="bilder/falsch2.png" alt="Bild einer Kiwi" id="img5">
         <canvas id="canvas5"></canvas>
       </div>
       <div class="image-chart-pair">
-        <img src="bilder/falsch3.png" alt="Falsch 3" id="img6">
-        <canvas id="canvas6"></canvas>
+        <img src="bilder/falsch3.png" alt="Bild eines Rennautos" id="img6">        <canvas id="canvas6"></canvas>
       </div>
     </div>
   </section>
 
-  <section class="user-upload correct-classifications">
+  <section class="user-upload box-information">
     <h2>Eigenes Bild hochladen</h2>
     <p>Hier kann ein Bild hochgeladen werden, welches klassifiziert werden soll.</p>
     <input type="file" id="imageUpload" accept="image/*">
@@ -68,35 +69,53 @@
       <canvas id="user-chart"></canvas>
     </div>
     <button id="classifyButton">Classify</button>
-    <button id="resetButton">Zurücksetzen</button>
+    <button id="resetButton" style="display: none">Zurücksetzen</button>
   </section>
 
-  <section class="discussion correct-classifications">
+  <section class="discussion box-information">
     <h2>Diskussion</h2>
     <p>
-      Die Klassifikation funktioniert bei klaren, typischen Bildern sehr zuverlässig. Besonders bei den korrekt klassifizierten Beispielen war die höchste Konfidenz über 90 %. Schwieriger wurde es bei Bildern mit ungewöhnlichen Perspektiven oder geringer Qualität – dort gab es fehlerhafte Klassifikationen. Oft liegt das daran, dass das Modell vor allem auf typische Darstellung trainiert wurde. Außerdem zeigen Modifikationen wie Weichzeichnen oder Verzerrung, dass die Robustheit begrenzt ist.
+      Die Analyse der Bildklassifikation zeigt deutlich, dass das Modell bei typischen, klar strukturierten Motiven mit eindeutigem Kontext sehr zuverlässige Ergebnisse liefert. So wurden ein Golden Retriever, ein Flugzeug am Himmel und ein Schnellzug mit über 90 % Wahrscheinlichkeit korrekt erkannt, was auf eine gute Trainingsbasis und effektive Mustererkennung hindeutet. Auffällig ist dabei, dass die Top-1-Ergebnisse stark dominiert haben, während alternative Klassen nur mit sehr niedrigen Wahrscheinlichkeiten vertreten waren.
+    </p>
+    <p>
+      Im Gegensatz dazu zeigt sich bei den Fehlklassifikationen, dass das Modell vor allem dann Schwierigkeiten hat, wenn ungewöhnliche Perspektiven, neutraler Hintergrund oder wenig repräsentative Merkmale vorliegen. Beispielsweise wurde ein Entenküken als weißer Fuchs oder Pomeranian interpretiert, vermutlich aufgrund ähnlicher Farb- und Formmuster. Besonders deutlich wird die Bedeutung des Kontexts am Beispiel der Kiwi, die mit über 50 % als Nautilus klassifiziert wurde – hier fehlt dem Modell offenbar das Verständnis für die reale Objektnatur. Auch das Rennauto wurde fälschlich mit Transportfahrzeugen wie Truck oder Einkaufswagen verwechselt, was auf Schwierigkeiten mit perspektivischer Erkennung und Bewegungsunschärfe hinweist.
+    </p>
+    <p>
+      Insgesamt zeigt sich, dass der Kontext sowie die Trainingsdatenvielfalt entscheidend für die Klassifikationsgenauigkeit sind. Fehlklassifikationen bieten dabei wertvolle Einblicke in die Grenzen und Funktionsweise solcher Modelle.
     </p>
   </section>
 
-  <section class="documentation correct-classifications">
+  <section class="documentation box-information">
     <h2>Dokumentation</h2>
     <h3>Technisch</h3>
     <p>
       Verwendete Frameworks:
     <ul>
-      <li><strong>ml5.js</strong>: Zum Einsatz eines vortrainierten neuronalen Netzwerks (MobileNet) für die Bildklassifikation.</li>
-      <li><strong>Plotly</strong>: Zur Visualisierung der Klassifikationsergebnisse als Balkendiagramme.</li>
-      <li><strong>p5.js</strong>: Wird vom ml5-Framework teilweise genutzt, z. B. für Bildmanipulationen.</li>
+    <li><strong>ml5.js</strong>: Ein benutzerfreundliches JavaScript-Framework, das maschinelles Lernen zugänglich macht. Es nutzt das vortrainierte MobileNet-Modell zur Bildklassifikation.
+      </li>
+      <li><strong>Plotly.js</strong>: Visualisierung der Klassifikationsergebnisse als
+        Balkendiagramm.
+      </li>
+      <li><strong>HTML5/JS/CSS</strong>: Strukturierung, Logik und Gestaltung der Anwendung mit Fokus auf Usability.
+      </li>
     </ul>
-    <p>
-      Besonderheit: Die Anwendung erlaubt sowohl Datei-Uploads als auch Drag-and-Drop. Es wurde auf responsive Layout und kontrastreiche Visualisierung geachtet.
-      </p>
-    </p>
+    <p> Die Anwendung läuft im Browser. Sie wurde mit Webstorm
+      entwickelt und mit einem Live Server lokal getestet. Für das Hosting wird GitHub Pages genutzt. Der Quellcode ist
+      modular aufgebaut. Drag-and-drop sowie Dateiupload wurden über die native File API implementiert. Fehlerhafte
+      Eingaben beim Bild-Upload werden durch Alerts abgefangen. </p>
 
     <h3>Fachlich</h3>
-    <p>
-      Die Anwendung nutzt das vortrainierte MobileNet-Modell zur Bilderkennung. Dieses Modell wurde auf dem ImageNet-Datensatz trainiert. Die Logik basiert auf dem Prinzip der Wahrscheinlichkeitsverteilung über mögliche Klassen. Die Klasse mit der höchsten Confidence wird als Ergebnis angenommen. Fehler entstehen meist bei Bildern, die in der Trainingsmenge nicht gut vertreten sind oder stark verändert wurden. Die Anwendung wurde auf typische Usability-Anforderungen wie klare Rückmeldung, einfache Bedienung und Feedback bei Fehlern geprüft.
-    </p>
+    <p> Ziel war es, eine clientseitige Bilderkennung mit einem vortrainierten Modell umzusetzen. Verwendet wurde das
+      MobileNet-Modell von TensorFlow, das in ml5.js eingebunden ist. Die Entscheidung für MobileNet fiel aufgrund
+      seiner hohen Effizienz und Browser-Kompatibilität. Das Modell wurde auf dem umfangreichen ImageNet-Datensatz
+      trainiert, was eine Klassifikation in über 1000 Kategorien erlaubt. </p>
+    <p> Die Anwendung zeigt für jedes Bild die Top-3-Vorhersagen mit prozentualen Confidence-Werten, visualisiert über
+      Balkendiagramme. Richtig und falsch klassifizierte Bilder wurden gezielt ausgewählt, um die Stärken und Schwächen
+      des Modells zu illustrieren. Besonders fehleranfällig sind Aufnahmen mit schlechtem Licht, ungewöhnlichem
+      Ausschnitt oder geringer Bildqualität. </p>
+    <p> Die Implementierung berücksichtigt zentrale HCI-Kriterien: Die Oberfläche ist aufgabenorientiert,
+      interaktionsfreundlich und fehlerrobust. Eine Erweiterung auf mehrere Bilder oder zusätzliche Modelle wäre
+      denkbar. </p>
   </section>
 </main>
 </body>
