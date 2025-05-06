@@ -8,20 +8,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
 <script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script>
 <script src="script.js" defer></script>
 <body>
 <header>
   <h1>Bilderkennung mit <span class="highlight">ml5.js</span></h1>
-  <p>Die folgende Webanwendung klassifiziert Bilder mit Hilfe von ml5.js.</p>
+  <p>Diese Webanwendung klassifiziert Bilder mit Hilfe von ml5.js.</p>
   <p>Es kann einige Sekunden dauern, bis die Ergebnisse geladen werden.</p>
-  <p>Bitte haben Sie etwas geduld!</p>
 </header>
 
 <main>
   <section class="classification-section">
     <div class="correct-classifications">
       <h2>Beispielbilder: Richtige Klassifikationen</h2>
-      <p>Die nachfolgenden drei Bilder wurden richtig klassifiziert.</p>
+      <p>Die nachfolgenden drei Bilder werden richtig klassifiziert.</p>
       <div class="image-chart-pair">
         <img src="bilder/richtig1.png" alt="Korrekt 1" id="img1">
         <canvas id="canvas1"></canvas>
@@ -40,7 +40,7 @@
   <section class="classification-section">
     <div class="correct-classifications">
       <h2>Beispielbilder: Falsche Klassifikationen</h2>
-      <p>Die nachfolgenden drei Bilder wurden falsch klassifiziert.</p>
+      <p>Die nachfolgenden drei Bilder werden falsch klassifiziert.</p>
       <div class="image-chart-pair">
         <img src="bilder/falsch1.png" alt="Falsch 1" id="img4">
         <canvas id="canvas4"></canvas>
@@ -63,11 +63,11 @@
     <div id="drag-and-drop-area">
       <p>Ziehe ein Bild hierher, um es zu klassifizieren.</p>
     </div>
-    <button id="classifyButton">Classify</button>
-    <div class="image-chart-pair">
+    <div class="image-chart-pair" style="display: none;">
       <div id="user-image-preview"></div>
       <canvas id="user-chart"></canvas>
     </div>
+    <button id="classifyButton">Classify</button>
     <button id="resetButton">Zurücksetzen</button>
   </section>
 
@@ -85,7 +85,7 @@
       Verwendete Frameworks:
     <ul>
       <li><strong>ml5.js</strong>: Zum Einsatz eines vortrainierten neuronalen Netzwerks (MobileNet) für die Bildklassifikation.</li>
-      <li><strong>Chart.js</strong>: Zur Visualisierung der Klassifikationsergebnisse als Balkendiagramme.</li>
+      <li><strong>Plotly</strong>: Zur Visualisierung der Klassifikationsergebnisse als Balkendiagramme.</li>
       <li><strong>p5.js</strong>: Wird vom ml5-Framework teilweise genutzt, z. B. für Bildmanipulationen.</li>
     </ul>
     <p>
