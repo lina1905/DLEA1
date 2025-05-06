@@ -82,7 +82,13 @@
       und effektive Mustererkennung hindeutet. Auffällig ist dabei, dass die Top-1-Ergebnisse stark dominiert haben, während alternative Klassen nur mit sehr niedrigen Wahrscheinlichkeiten vertreten waren.
     </p>
     <p>
-      Im Gegensatz dazu zeigt sich bei den Fehlklassifikationen, dass das Modell vor allem dann Schwierigkeiten hat, wenn ungewöhnliche Perspektiven, neutraler Hintergrund oder wenig repräsentative Merkmale vorliegen. Beispielsweise wurde ein Entenküken als weißer Fuchs oder Pomeranian interpretiert, vermutlich aufgrund ähnlicher Farb- und Formmuster. Besonders deutlich wird die Bedeutung des Kontexts am Beispiel der Kiwi, die mit über 50 % als Nautilus klassifiziert wurde – hier fehlt dem Modell offenbar das Verständnis für die reale Objektnatur. Auch das Rennauto wurde fälschlich mit Transportfahrzeugen wie Truck oder Einkaufswagen verwechselt, was auf Schwierigkeiten mit perspektivischer Erkennung und Bewegungsunschärfe hinweist.
+      Im Gegensatz dazu zeigt sich bei den Fehlklassifikationen, dass das Modell vor allem dann Schwierigkeiten hat,
+      wenn ungewöhnliche Perspektiven, neutraler Hintergrund oder wenig repräsentative Merkmale vorliegen.
+      Beispielsweise wurde ein Entenküken als weißer Fuchs oder Pomeranian interpretiert, vermutlich aufgrund
+      ähnlicher Farb- und Formmuster. Besonders deutlich wird die Bedeutung des Kontexts am Beispiel der Kiwi, die
+      mit über 50 % als Nautilus klassifiziert wurde – hier fehlt dem Modell offenbar das Verständnis für die reale
+      Objektnatur. Auch das Rennauto wurde fälschlich klassifiziert, was auf Schwierigkeiten mit perspektivischer
+      Erkennung und Bewegungsunschärfe hinweist.
     </p>
     <p>
       Insgesamt zeigt sich, dass der Kontext sowie die Trainingsdatenvielfalt entscheidend für die Klassifikationsgenauigkeit sind. Fehlklassifikationen bieten dabei wertvolle Einblicke in die Grenzen und Funktionsweise solcher Modelle.
@@ -95,8 +101,7 @@
     <p>
       Verwendete Frameworks:
     <ul>
-    <li><strong>ml5.js</strong>: in benutzerfreundliches JavaScript-Framework, das maschinelles Lernen zugänglich
-      macht. Es nutzt das vortrainierte MobileNet-Modell zur Bildklassifikation. Ein benutzerfreundliches JavaScript-Framework, das maschinelles Lernen im Browser ermöglicht. Es verwendet das vortrainierte MobileNet-Modell zur Bildklassifikation, wodurch ohne eigene Modelltrainings solide Ergebnisse erzielt werden können.
+    <li><strong>ml5.js</strong>: Ein benutzerfreundliches JavaScript-Framework, das maschinelles Lernen im Browser ermöglicht. Es verwendet das vortrainierte MobileNet-Modell zur Bildklassifikation, wodurch ohne eigene Modelltrainings solide Ergebnisse erzielt werden können.
 
     </li>
       <li><strong>Plotly.js</strong>: Diese Visualisierungsbibliothek wird verwendet, um die Klassifikationsergebnisse als übersichtliche Balkendiagramme darzustellen. Die Darstellung der Top-3-Klassen pro Bild mit prozentualem Confidence-Wert erfolgt optisch ansprechend.
@@ -114,7 +119,8 @@
       </li>
       <li>
         Beim Hochladen von Dateien per Dateiauswahl als auch über die Drag-and-Drop-Funktion wird geprüft, ob es
-        sich um ein unterstütztes Bildformat (z. B. JPG, PNG) handelt. Falls kein gültiges Bild erkannt wird, erscheint eine entsprechende Fehlermeldung. Dies schützt vor falschen Eingaben und verbessert die Robustheit der Anwendung.
+        sich um ein unterstütztes Bildformat (z. B. JPG, PNG) handelt. Falls kein gültiges Bild erkannt wird,
+        erscheint eine entsprechende Fehlermeldung. Dies schützt vor falschen Eingaben.
       </li>
       <li>
         Um die Usability und das Verständnis der Nutzer zu verbessern, wurden jedem Funktionsbereich der Anwendung (z. B. richtige/falsche Klassifikationen, Benutzer-Upload) erklärende Texte hinzugefügt. Diese beschreiben die Funktion und den Zweck des jeweiligen Abschnitts und helfen besonders unerfahrenen Nutzern beim Einstieg.
@@ -122,7 +128,7 @@
     </ul>
     <h3>Fachlich</h3>
     <p>
-      Die Anwendung verfolgt das Ziel, die Leistungsfähigkeit und Grenzen moderner Bildklassifikationssysteme anhand eines realitätsnahen Beispiels (MobileNet) sichtbar zu machen.
+      Die Anwendung verfolgt das Ziel, die Leistungsfähigkeit und Grenzen moderner Bildklassifikationssysteme anhand eines Beispiels (MobileNet) sichtbar zu machen.
       Der fachliche Ansatz beruht darauf, dem Nutzer die Funktionsweise sowie die Stärken und Schwächen eines solchen Modells erfahrbar zu machen – durch unmittelbares visuelles Feedback
       und bewusst gewählte Beispielbilder.
     </p>
